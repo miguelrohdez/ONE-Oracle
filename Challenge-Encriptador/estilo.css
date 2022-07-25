@@ -10,15 +10,21 @@ body{
     background-color: #F3F5FC;
 }
 
+#appTitle{
+    vertical-align: top;
+    margin-left: 55px;
+}
+
 h3{
     text-align: center;
     margin-top: 5%;
     font-family: 'Inter';
     font-size: 38px;
+    display: none;
 }
 
 #textoResultado{
-    display: block;
+    display: none;
     width: 90%;
     margin: auto;
     height: 50vh;
@@ -83,7 +89,7 @@ button:hover{
 }
 
 #btnCopiar{
-    display: block;
+    display: none;
     margin-left: auto;
     margin-right: auto;
     width: 80%
@@ -99,9 +105,11 @@ button:hover{
 #resultado{
     display: inline-block;
     width: 25%;
-    height: auto;
     border-radius: 20px;
-    background-color: white;
+    background-image: url(mensaje.png);
+    background-repeat: no-repeat;
+    background-size: auto 80vh;
     vertical-align: top;
     height: 80vh;
+    background-position: center;
 }

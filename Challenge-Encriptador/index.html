@@ -12,6 +12,7 @@
     <nav>
         <div class="logo">
             <img src="logoAlura.png" alt="logo Alura">
+            <span id="appTitle">Challenge 1: Encriptador</span>
         </div>
     </nav>
     <div id="principal">
@@ -20,7 +21,7 @@
         <button id="btnDesencriptar">Desencriptar</button>
     </div>
     <div id="resultado">
-        <h3>Resultado</h3>
+        <h3 id="titulo">Resultado</h3>
         <span id="textoResultado" >No se ha realizado ninguna acción</span><br><br>
         <button id="btnCopiar">Copiar</button>
     </div>
@@ -67,7 +68,7 @@
             inputTexto.value = "";
             inputTexto.focus();
             spanTextoRes.innerHTML = textoEncriptado;
-            
+            mostrarResultado()
             //console.log(textoEncriptado);
         }
 
@@ -96,6 +97,7 @@
             //console.log(textoDesencriptado);
             inputTexto.value = "";
             inputTexto.focus();
+            mostrarResultado()
         }
 
         function copiarTexto(){
@@ -106,6 +108,16 @@
             inputFalso.select();
             document.execCommand("copy");
             document.body.removeChild(inputFalso);
+        }
+
+        function mostrarResultado() {
+            var titulo = document.getElementById("titulo");
+            var functionCopiar = document.getElementById("btnCopiar");
+            titulo.style.display = "block";
+            functionCopiar.style.display = "block";
+            spanTextoRes.style.display = "block";
+            var resultado = document.getElementById("resultado");
+            resultado.style.backgroundImage = "none";
         }
 
         var functionEncriptar = document.getElementById("btnEncriptar");
