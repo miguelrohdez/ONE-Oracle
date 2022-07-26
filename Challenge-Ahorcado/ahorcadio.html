@@ -11,50 +11,79 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="logoAlura.png" alt="logo Alura">
+            <img src="img/logoAlura.png" alt="logo Alura">
             <span id="appTitle">Challenge 2: Juego de Ahoracado</span>
         </div>
     </nav>
     <div id="principal">
-        <button id="btnIniciar">Iniciar Juego</button>
-        <button id="btnAgregarPalabra">Agregar nueva palabra</button>
+        <button id="btnIniciar" onclick="juego();">Iniciar Juego</button><br>
+        <button id="btnAgregarPalabra" onclick="agregarPalabra();">Agregar nueva palabra</button>
     </div>
-    <div id="nuevaPalabra">
-        <textarea name="nuevaPalabra" id="nuevaPalabra" placeholder="Ingrese una palabra"></textarea>
-        <div id="instrucciones">
-            <img src="img/atencionLogo.png" alt="logo de atencion">
-            <span id="instruccionesPalabra">Max de 8 letras</span>
-        </div>
-        <button id="btnGuardar">Guardar y empezar</button>
-        <button id="btnCancelar">Cancelar</button>
-    </div>
-    <div id="juego">
-        <canvas id="graficoAhorcado" width="800px" height="400px"> </canvas>
-        <button id="btnNuevoJuego">Nuevo juego</button>
-        <button id="btnRendirse">Desistir</button>
-    </div>
+    
     <script>
-        var pantalla = document.getElementById("graficoAhorcado");
-        var pincel = pantalla.getContext("2d");
-        pincel.moveTo(280,220);
-        pincel.lineTo(495,220);
-        pincel.moveTo(314,220);
-        pincel.lineTo(314,60);
-        pincel.lineTo(405,60);
-        pincel.lineTo(405,95);
-        pincel.moveTo(405,125);
-        pincel.lineTo(405,190);
-        pincel.lineTo(423,210);
-        pincel.moveTo(405,190);
-        pincel.lineTo(385,210);
-        pincel.moveTo(405,140);
-        pincel.lineTo(422.5,149);
-        pincel.moveTo(405,140);
-        pincel.lineTo(384,149);
-        pincel.stroke();
+        var principal = document.getElementById("principal");
+        var palabras = ["lenguaje", "oracle", "alura", "software", "gato", "pollito"];
         
-
-    </script>
+        function incio(){
+            var botones = `<button id="btnIniciar" onclick="juego();">Iniciar Juego</button>
+                            <button id="btnAgregarPalabra" onclick="agregarPalabra();">Agregar nueva palabra</button>`;
+            principal.innerHTML= botones;
+        }
+        
+        function agregarPalabra(){
+            var pedirPalabra = `
+            <textarea name="nuevaPalabra" id="nuevaPalabra" placeholder="Ingrese una palabra"></textarea>
+            <div id="instrucciones">
+                <img src="img/atencionLogo.png" alt="logo de atencion">
+                <span id="instruccionesPalabra">Max de 8 letras</span>
+            </div>
+            <button id="btnGuardar" onclick="juego();">Guardar y empezar</button>
+            <button id="btnCancelar" onclick="incio();">Cancelar</button>
+            `
+            principal.innerHTML= pedirPalabra;
+        }
+       
+        function juego(){
+            var juego = `
+                <canvas id="graficoAhorcado" width="800px" height="400px"> </canvas>
+                <button id="btnNuevoJuego" onclick="juego();">Nuevo juego</button>
+                <button id="btnRendirse" onclick="incio();">Desistir</button>
+            `
+            principal.innerHTML= juego;
+            var pantalla = document.getElementById("graficoAhorcado");
+            var pincel = pantalla.getContext("2d");
+            pincel.arc(405, 110, 15, 0, 2*Math.PI ); //Cabeza
+            pincel.stroke();
+            pincel.moveTo(280,220);
+            pincel.lineTo(495,220);
+            pincel.moveTo(314,220);
+            pincel.lineTo(314,60);
+            pincel.lineTo(405,60);
+            pincel.lineTo(405,95);
+            pincel.moveTo(405,125); //Cuerpo
+            pincel.lineTo(405,190); //Cuerpo
+            pincel.lineTo(423,210); //PieDerecho
+            pincel.moveTo(405,190); //PieIzquierdo
+            pincel.lineTo(385,210); //PieIzquierdo
+            pincel.moveTo(405,140); //BrazonDerecho
+            pincel.lineTo(422.5,149); //BrazonDerecho
+            pincel.moveTo(405,140); //BrazonIzquierdo
+            pincel.lineTo(384,149); //BrazonIzquierdo
+            pincel.stroke();
+        }
+        
+        
+        
+        
+        /*if (palabra > 8){
+            alert("La palabra no puede superar los 8 caracteres");
+            letrasUsadas
+            numErrores
+            
+        }*/
+        
+        
+        </script>
     
     
 </body>

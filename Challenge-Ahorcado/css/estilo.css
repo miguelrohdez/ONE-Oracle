@@ -4,3 +4,29 @@ canvas{
     margin-left: auto;
     margin-right: auto;
 }
+
+button{
+    background-color: gainsboro;
+    color: #2b4bc9;
+    font-size: 1.3em;
+    border-style: none;
+    height: 60px;
+    border-radius: 10px;
+    display: block;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+}
+
+button:hover{
+    background-color: #2848c6;
+    color: #ffffff;
+}
+
+#principal{
+    display: block;
+    border-style: solid;
+}
